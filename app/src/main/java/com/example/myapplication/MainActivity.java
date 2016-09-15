@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private Button ToggleBtn;
     private Button bt1;
     private Button bt2;
+    private Button bt3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,6 +95,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         bt2.setOnClickListener(new MyOnClickListener(){
+            @Override
+            public void onClick(View v) {
+                //调用父类的onClick
+                super.onClick(v);
+                Toast.makeText(MainActivity.this," bt2要执行的逻辑", 1).show();
+                //MainActivity.this--匿名内部类访问不到外部类的this，所以类名.this调用
+            }
+        });
+        bt3= (Button) findViewById(R.id.button3);
+        bt3.setOnClickListener(new MyOnClickListener(){
             @Override
             public void onClick(View v) {
                 //调用父类的onClick
